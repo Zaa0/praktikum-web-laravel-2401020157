@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="id"><head><meta charset="utf-8"><title>Form Buku</title></head>
 <body><h1>{{ $buku->exists ? 'Ubah Buku' : 'Tambah Buku' }}</h1>
-<form method="POST" action="{{ $buku->exists ? route('buku.update',$buku) : route('buku.store') }}">
+<form method="POST"
+      action="{{ $buku->exists ? route('buku.update',$buku)
+                               : route('buku.store') }}">
 @csrf
 @if ($buku->exists) @method('PUT') @endif
 <p>Kode <input name="kode" value="{{ old('kode',$buku->kode) }}"></p>
